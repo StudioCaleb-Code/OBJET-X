@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Nosotros - OBJET-X{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nosotros.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    
+    <!-- TARJETA DE PERFIL (IZQUIERDA) -->
+    <div class="profile-card">
+        <div class="profile-avatar-wrapper">
+            <img src="{{ url_for('static', filename='image/python.jfif') }}" alt="Foto de Perfil" class="profile-img">
+            <div class="profile-status-dot"></div>
+        </div>
+        
+        <h2 class="profile-name">Caleb Stud</h2>
+        <p class="profile-role">Lead AI & Full-Stack Developer</p>
+        <p class="profile-bio">Creador y desarrollador principal del ecosistema OBJET-X. Apasionado por la integración de redes neuronales aplicadas a la optimización de procesos comerciales y software de consumo masivo.</p>
+        
+        <div class="profile-meta-grid">
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-geo-alt-fill"></i> Ubicación:</span>
+                <span class="meta-value">Perú</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-envelope-fill"></i> Correo:</span>
+                <span class="meta-value">studicaleb4@gmail.com</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-code-square"></i> Especialidad:</span>
+                <span class="meta-value">Computer Vision / Web</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-rocket-takeoff-fill"></i> Experiencia:</span>
+                <span class="meta-value">YOLOv8 / Flask / UI</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-briefcase-fill"></i> Proyecto:</span>
+                <span class="meta-value">OBJET-X Core v1.1</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label"><i class="bi bi-cloud-check-fill"></i> Despliegue:</span>
+                <span class="meta-value">Railway Ready</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TARJETA TECNOLÓGICA (DERECHA) -->
+    <div class="tech-card">
+        <h2 class="tech-title"><i class="bi bi-cpu-fill"></i> Arquitectura Tecnológica</h2>
+        <p class="tech-intro">El proyecto está desarrollado bajo un entorno híbrido modular, combinando procesamiento asíncrono de inteligencia artificial con un backend web ligero de alto rendimiento.</p>
+        
+        <div class="tech-stack-list">
+            <div class="tech-item">
+                <div class="tech-icon-box"><i class="bi bi-braces"></i></div>
+                <div class="tech-info">
+                    <h4>Lenguajes de Programación</h4>
+                    <p><b>Python 3.13:</b> Encargado de la lógica del backend, control de hilos de la cámara y ejecución de la red neuronal de Ultralytics. <b>HTML5 / CSS3 / JavaScript:</b> Estructuración del lado cliente.</p>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-icon-box"><i class="bi bi-filetype-csv"></i></div>
+                <div class="tech-info">
+                    <h4>Persistencia Local (CSV / Excel)</h4>
+                    <p><b>Pandas Engine:</b> El inventario comercial se indexa directo en memoria desde <code>productos.csv</code>. Esto permite cambiar precios dinámicamente desde Excel sin necesidad de reiniciar la IA.</p>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-icon-box"><i class="bi bi-database-fill-gear"></i></div>
+                <div class="tech-info">
+                    <h4>Motor Relacional (SQL)</h4>
+                    <p><b>SQL Integration:</b> Infraestructura preparada vía variables de entorno (<code>.env</code>) para migrar a una base de datos relacional remota alojada en Railway, asegurando transacciones seguras y persistencia masiva.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/nosotros.js') }}" defer></script>
+{% endblock %}

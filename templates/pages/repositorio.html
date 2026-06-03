@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Repositorio - OBJET-X{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/repositorio.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="repo-container">
+    
+    <!-- CABECERA DEL REPOSITORIO -->
+    <div class="repo-header">
+        <div class="repo-icon-box">
+            <i class="bi bi-github"></i>
+        </div>
+        <h1>Código Fuente y Despliegue</h1>
+        <p class="repo-subtitle">Accede al núcleo del proyecto, clona el ecosistema y ejecútalo de forma local en simples pasos.</p>
+        
+        <a href="https://github.com/" target="_blank" class="btn-github-main">
+            <i class="bi bi-git"></i> Visitar Repositorio en GitHub
+        </a>
+    </div>
+
+    <!-- SECCIONES DE INSTALACIÓN -->
+    <section class="repo-sections-wrapper">
+        
+        <!-- PASO 1 -->
+        <div class="repo-card">
+            <h2><i class="bi bi-terminal-fill"></i> 1. Clonar el Proyecto</h2>
+            <p>Abre la terminal o consola de comandos (CMD / PowerShell) en la carpeta donde deseas guardar el proyecto y ejecuta el comando de clonación:</p>
+            <div class="command-box">
+                <code>git clone https://github.com/TU_USUARIO/OBJET-X.git</code>
+                <button class="btn-copy" onclick="copyText(this)">Copiar</button>
+            </div>
+            <p class="command-sub">Luego, entra al directorio raíz creado usando el comando: <code class="inline-code">cd OBJET-X</code></p>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="repo-card">
+            <h2><i class="bi bi-box-seam-fill"></i> 2. Instalar Entorno y Dependencias</h2>
+            <p>Para evitar conflictos de librerías en tu sistema global, se recomienda instalar los paquetes listados en el gestor de requerimientos:</p>
+            <div class="command-box">
+                <code>pip install -r requirements.txt</code>
+                <button class="btn-copy" onclick="copyText(this)">Copiar</button>
+            </div>
+            <span class="badge-info">💡 Nota: Este proceso instalará Flask, OpenCV, Pandas y Ultralytics de forma automática.</span>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="repo-card">
+            <h2><i class="bi bi-play-btn-fill"></i> 3. Lanzar la Aplicación</h2>
+            <p>Una vez completada la instalación de los requerimientos, arranca el servidor web asíncrono optimizado para Windows:</p>
+            <div class="command-box">
+                <code>python app.py</code>
+                <button class="btn-copy" onclick="copyText(this)">Copiar</button>
+            </div>
+            <p>El sistema desactivará el auto-recargador de PyTorch para evitar bloqueos y dejará el canal de transmisión de video listo.</p>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="repo-card">
+            <h2><i class="bi bi-sliders2-vertical"></i> 4. Pruebas y Ajustes</h2>
+            <p>Abre tu navegador web e ingresa a <code class="inline-code">http://localhost:5000</code>. El sistema detectará automáticamente tu webcam interna o USB por defecto.</p>
+            <div class="repo-tip-box">
+                <h5>¿Cómo cambiar los precios en tiempo real?</h5>
+                <p>No necesitas detener el servidor web. Abre tu archivo <code>productos.csv</code> con Microsoft Excel o un editor de texto, cambia el valor de la columna <code>precio</code> o <code>nombre</code>, guarda el archivo y el visor en vivo reflejará los datos modificados al siguiente cuadro detectado.</p>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- SCRIPT DE COPIADO CORREGIDO A LA PALETA BLANCO/NEGRO -->
+<script>
+    function copyText(button) {
+        const codeElement = button.parentElement.querySelector('code');
+        navigator.clipboard.writeText(codeElement.innerText);
+        button.innerText = "¡Copiado!";
+        button.style.background = "#ffffff"; /* Fondo blanco al copiar */
+        button.style.color = "#000000";      /* Texto negro */
+        setTimeout(() => {
+            button.innerText = "Copiar";
+            button.style.background = "#000000"; /* Regresa a fondo negro */
+            button.style.color = "#ffffff";      /* Regresa a texto blanco */
+        }, 2000);
+    }
+</script>
+{% endblock %}
+
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/repositorio.js') }}" defer></script>
+{% endblock %}

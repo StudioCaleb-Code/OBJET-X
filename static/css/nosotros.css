@@ -1,0 +1,202 @@
+/* =====================================================================
+   ESTILOS DE LA PÁGINA NOSOTROS (MINIMALISTA BLANCO Y NEGRO)
+   ===================================================================== */
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- TARJETA DE PERFIL (IZQUIERDA) --- */
+.profile-card {
+    flex: 1;
+    background-color: #0a0a0a; /* Negro premium suave */
+    border: 1px solid #222222; /* Borde sutil */
+    border-radius: 8px; /* Redondeado suavizado */
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Sombra elegante */
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px auto;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ffffff; /* Borde minimalista blanco */
+    padding: 4px;
+    background-color: #000000;
+}
+
+.profile-status-dot {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff; /* Punto de estado ahora es blanco */
+    border: 2px solid #0a0a0a;
+    border-radius: 50%;
+}
+
+.profile-name {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+}
+
+.profile-role {
+    color: #aaaaaa; /* Gris claro en lugar de rojo */
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.profile-bio {
+    color: #aaaaaa;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+}
+
+/* GRILLA DE LOS 6 CAMPOS */
+.profile-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: left;
+    border-top: 1px solid #222222;
+    padding-top: 25px;
+}
+
+.meta-item {
+    background-color: #000000; /* Fondo negro puro para las sub-tarjetas */
+    border: 1px solid #222222;
+    padding: 12px 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.meta-label {
+    font-size: 12px;
+    color: #aaaaaa;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-value {
+    font-size: 13.5px;
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- TARJETA TECNOLÓGICA (DERECHA) --- */
+.tech-card {
+    flex: 1.2;
+    background-color: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.tech-title {
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.tech-intro {
+    color: #aaaaaa;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.tech-stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tech-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.tech-icon-box {
+    background-color: #000000;
+    color: #ffffff; /* Todos los íconos ahora son blancos limpios */
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid #222222;
+}
+
+.tech-info h4 {
+    margin: 0 0 6px 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tech-info p {
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* --- REEMPLAZO DE CLASES DE COLOR POR TONOS MONOCHROME --- */
+.text-red, .text-blue, .text-green, .text-yellow, .text-purple, .text-cyan { 
+    color: #ffffff !important; /* Fuerza a todos los íconos del HTML a volverse blancos */
+}
+
+/* --- RESPONSIVE DESKTOP-CELULAR --- */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .profile-card, .tech-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-meta-grid {
+        grid-template-columns: 1fr;
+    }
+}

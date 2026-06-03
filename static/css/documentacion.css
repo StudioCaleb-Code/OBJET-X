@@ -1,0 +1,269 @@
+/* =====================================================================
+   ESTILOS GENERALES DE LA DOCUMENTACIÓN (MINIMALISTA BLANCO Y NEGRO)
+   ===================================================================== */
+.docs-wrapper {
+    display: flex;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+/* --- BARRA LATERAL DE NAVEGACIÓN --- */
+.docs-sidebar {
+    flex: 0.3;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    background-color: #0a0a0a; /* Fondo negro puro */
+    border: 1px solid #222222; /* Borde ultra suave */
+    border-radius: 8px; /* Bordes redondeados sutiles */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+.docs-sidebar h3 {
+    color: #ffffff; /* Blanco puro */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 10px;
+}
+
+.docs-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.docs-sidebar ul li {
+    margin-bottom: 12px;
+}
+
+.docs-sidebar ul li a {
+    color: #aaaaaa; /* Gris claro */
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.docs-sidebar ul li a:hover {
+    color: #ffffff; /* Cambio limpio a blanco al pasar el mouse */
+    padding-left: 4px; /* Pequeño desplazamiento minimalista */
+}
+
+/* --- CUERPO CENTRAL DE TEXTOS --- */
+.docs-content {
+    flex: 1.2;
+    background-color: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Sombra con más presencia pero difuminada */
+}
+
+.docs-headerreveal h1 {
+    color: #ffffff;
+    font-size: 34px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.docs-subtitle {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin: 0;
+}
+
+.docs-divider {
+    border: 0;
+    height: 1px;
+    background: #222222; /* Separador sutil */
+    margin: 35px 0;
+}
+
+.docs-section h2 {
+    color: #ffffff; /* Títulos de sección ahora en blanco */
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.docs-section p {
+    color: #e0e0e0; /* Texto de lectura en blanco crudo muy cómodo */
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* --- TARJETAS DE VISIÓN Y OBJETIVOS --- */
+.card-vision, .card-objetivos {
+    background-color: #000000; /* Fondo negro absoluto para contrastar */
+    border: 1px solid #222222;
+    border-left: 4px solid #ffffff; /* Distintivo minimalista en blanco */
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-objetivos {
+    border-left-color: #ffffff; /* Mismo color blanco para mantener la sobriedad */
+}
+
+.card-vision h3, .card-objetivos h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.card-objetivos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-objetivos ul li {
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-objetivos ul li i {
+    color: #ffffff; /* Iconos en blanco */
+}
+
+/* --- BLOQUES DE CÓDIGO --- */
+.code-block {
+    background-color: #000000;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.code-block p {
+    color: #aaaaaa;
+    margin: 0 0 5px 0;
+}
+
+.code-block code, .code-block-inline code {
+    color: #ffffff; /* Código limpio sin sintaxis de colores */
+    font-size: 14px;
+}
+
+.code-block-inline {
+    background-color: #000000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 10px 0;
+    border: 1px solid #222222;
+}
+
+/* --- LÍNEA DE TIEMPO (PASO A PASO) --- */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 5px;
+    width: 100%; /* Línea de la línea de tiempo */
+    max-width: 1px;
+    background-color: #222222;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-number {
+    position: absolute;
+    left: -31px;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff; /* Círculos indicadores en blanco */
+    color: #000000; /* Número en negro para contraste */
+    border-radius: 50%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.timeline-info h4 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.timeline-info p {
+    margin: 0;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+/* --- TABLA DE DATOS --- */
+.docs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #000000;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.docs-table th, .docs-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #222222;
+    font-size: 14px;
+}
+
+.docs-table th {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.docs-table td {
+    color: #e0e0e0;
+}
+
+.table-code {
+    background-color: #222222;
+    color: #ffffff !important;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* --- RESPONSIVE DESKTOP-CELULAR --- */
+@media (max-width: 768px) {
+    .docs-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .docs-sidebar {
+        position: static;
+        width: auto;
+    }
+}

@@ -1,0 +1,9 @@
+path: ./dataset # Ruta raíz del dataset
+train: train/images
+val: val/images
+
+# Cambia esto por tus productos reales
+names:
+  0: refresco_cola
+  1: papas_fritas
+  2: galletas_chocolate

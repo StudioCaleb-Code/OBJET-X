@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Background - Efecto Onda Sutil</title>
+  <style>
+    /* Estilos base para resetear márgenes */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Contenedor del Hero */
+    .hero {
+      width: 100%;
+      height: 100vh; /* Ocupa todo el alto de la pantalla */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-color: #f8f9fa; /* Fondo gris claro idéntico a tu imagen */
+    }
+
+    /* CAPA 1: Puntos base (Siempre visibles y sutiles) */
+    .hero-dots-base {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Puntos pequeños (1px) y claros (#e5e7eb) */
+      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* CAPA 2: Puntos interactivos (Efecto onda atenuado/más suave) */
+    .hero-dots-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      
+      /* Ajuste: Puntos ligeramente más grandes (1.5px) y un gris más suave (#9ca3af) */
+      background-image: radial-gradient(#9ca3af 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+
+      /* Ajuste: Reducido a 120px para que el destello sea más pequeño y elegante */
+      -webkit-mask-image: radial-gradient(circle 120px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+      mask-image: radial-gradient(circle 120px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+      
+      /* Transición fluida */
+      transition: mask-image 0.1s cubic-bezier(0.1, 0.8, 0.2, 1), -webkit-mask-image 0.1s cubic-bezier(0.1, 0.8, 0.2, 1);
+      pointer-events: none;
+    }
+
+    /* Contenido de ejemplo dentro del Hero */
+    .hero-content {
+      position: relative;
+      text-align: center;
+      font-family: sans-serif;
+      z-index: 2; /* Asegura que el texto esté por encima del fondo */
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+      color: #4b5563;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero" id="hero">
+    <div class="hero-dots-base"></div>
+    
+    <div class="hero-dots-hover" id="dots-hover"></div>
+    
+    <div class="hero-content">
+      <h1>Tu Título Impactante Aquí</h1>
+      <p>Mueve el cursor para ver el efecto de onda sobre los puntos</p>
+    </div>
+  </section>
+
+  <script>
+    const hero = document.getElementById('hero');
+    const dotsHover = document.getElementById('dots-hover');
+
+    // Capturamos el movimiento del ratón en la sección Hero
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      
+      // Calculamos las coordenadas X e Y relativas al contenedor
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Enviamos las coordenadas a la capa modificada
+      dotsHover.style.setProperty('--mouse-x', `${x}px`);
+      dotsHover.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    // Ocultar el efecto cuando el cursor sale del área del Hero
+    hero.addEventListener('mouseleave', () => {
+      dotsHover.style.setProperty('--mouse-x', `-1000px`);
+      dotsHover.style.setProperty('--mouse-y', `-1000px`);
+    });
+  </script>
+
+</body>
+</html>

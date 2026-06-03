@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %}Documentación - OBJET-X{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/documentacion.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="docs-wrapper">
+    <aside class="docs-sidebar">
+        <h3>Contenido</h3>
+        <ul>
+            <li><a href="#vision-objetivos">Visión y Objetivos</a></li>
+            <li><a href="#requisitos">Requisitos del Sistema</a></li>
+            <li><a href="#paso-a-paso">Guía Paso a Paso</a></li>
+            <li><a href="#estructura-datos">Base de Datos (CSV)</a></li>
+        </ul>
+    </aside>
+
+    <section class="docs-content">
+        <div class="docs-headerreveal">
+            <h1>Documentación Técnica</h1>
+            <p class="docs-subtitle">Guía de integración, alcances y despliegue del ecosistema OBJET-X v1.1</p>
+        </div>
+
+        <article id="vision-objetivos" class="docs-section">
+            <h2>1. Visión y Objetivos del Proyecto</h2>
+            <div class="card-vision">
+                <h3>Visión</h3>
+                <p>
+                    Convertirse en una terminal inteligente de punto de venta ágil, capaz de automatizar el proceso de facturación y cobro mediante visión computacional, eliminando la necesidad de lectores de códigos de barras tradicionales y agilizando las auditorías de inventario en tiempo real.
+                </p>
+            </div>
+            
+            <div class="card-objetivos">
+                <h3>Objetivos Actuales (Fase 1)</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle-fill"></i> <b>Reconocimiento de Bebidas:</b> Clasificar de forma precisa diferentes tipos de bebidas mediante el modelo personalizado de YOLOv8.</li>
+                    <li><i class="bi bi-check-circle-fill"></i> <b>Sincronización de Precios:</b> Cruzar el identificador del modelo dinámicamente con un archivo local indexado para retornar nombres comerciales y costos monetarios al segundo.</li>
+                    <li><i class="bi bi-check-circle-fill"></i> <b>Estructura Descentralizada:</b> Permitir la gestión de la base de datos de manera externa (vía CSV/Excel) sin alterar una sola línea de código del pipeline de IA.</li>
+                </ul>
+            </div>
+        </article>
+
+        <hr class="docs-divider">
+
+        <article id="requisitos" class="docs-section">
+            <h2>2. Requisitos Previos</h2>
+            <p>Asegúrate de contar con las siguientes dependencias instaladas en tu entorno local antes de iniciar el servidor:</p>
+            <div class="code-block">
+                <p># Instalar librerías principales</p>
+                <code>pip install flask ultralytics pandas opencv-python</code>
+            </div>
+        </article>
+
+        <hr class="docs-divider">
+
+        <article id="paso-a-paso" class="docs-section">
+            <h2>3. Guía de Ejecución Paso a Paso</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-info">
+                        <h4>Preparación del Dataset y Modelo</h4>
+                        <p>Las imágenes de bebidas etiquetadas en Roboflow son procesadas por el script <code>entrenar.py</code>. El resultado optimizado se guarda automáticamente como <code>best.pt</code> en la raíz del proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-info">
+                        <h4>Configuración del Inventario (CSV)</h4>
+                        <p>Registra tus productos en el archivo <code>productos.csv</code>. Asegúrate de que el campo <code>id_modelo</code> coincida exactamente con la etiqueta que predice tu red neuronal.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-info">
+                        <h4>Lanzamiento del Motor Flask</h4>
+                        <p>Ejecuta el servidor asíncrono desde tu consola de comandos local:</p>
+                        <div class="code-block-inline">
+                            <code>python app.py</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-info">
+                        <h4>Apertura del Panel e Interfaz</h4>
+                        <p>Abre tu navegador de preferencia e ingresa a la dirección <code>http://localhost:5000</code>. Haz clic en el botón de "Probar ahora" para activar la ventana modal del escáner continuo.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <hr class="docs-divider">
+
+        <article id="estructura-datos" class="docs-section">
+            <h2>4. Estructura de la Base de Datos</h2>
+            <p>El sistema consume los datos comerciales desde un plano estructurado en memoria. El formato de mapeo obligatorio para cada fila del inventario es el siguiente:</p>
+            
+            <table class="docs-table">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="table-code">id_modelo</code></td>
+                        <td>String</td>
+                        <td>Clase exacta detectada por el archivo .pt</td>
+                        <td>Agua</td>
+                    </tr>
+                    <tr>
+                        <td><code class="table-code">nombre</code></td>
+                        <td>String</td>
+                        <td>Nombre público en la boleta/carrito</td>
+                        <td>Agua Mineral 500ml</td>
+                    </tr>
+                    <tr>
+                        <td><code class="table-code">categoria</code></td>
+                        <td>String</td>
+                        <td>Clasificación del rubro comercial</td>
+                        <td>Bebidas</td>
+                    </tr>
+                    <tr>
+                        <td><code class="table-code">precio</code></td>
+                        <td>Float</td>
+                        <td>Valor del costo unitario monetario</td>
+                        <td>1.20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</div>
+{% endblock %}
+
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/documentacion.js') }}" defer></script>
+{% endblock %}

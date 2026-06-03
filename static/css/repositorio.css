@@ -1,0 +1,176 @@
+/* =====================================================================
+   ESTILOS DE LA PÁGINA REPOSITORIO (CYBERPUNK CODE STYLE)
+   ===================================================================== */
+.repo-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER DE GITHUB --- */
+.repo-header {
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.repo-icon-box {
+    font-size: 55px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.repo-header h1 {
+    color: #ffffff;
+    font-size: 32px;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+}
+
+.repo-subtitle {
+    color: #8b949e;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+}
+
+.btn-github-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #21262d;
+    color: #c9d1d9;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-github-main:hover {
+    background-color: #ff4b4b;
+    color: #ffffff;
+    border-color: #ff4b4b;
+    box-shadow: 0 4px 15px rgba(255, 75, 75, 0.4);
+}
+
+/* --- TARJETAS PASO A PASO --- */
+.repo-sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.repo-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 25px 30px;
+}
+
+.repo-card h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.repo-card p {
+    color: #c9d1d9;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 0;
+}
+
+/* --- COLORES DE ICONOS --- */
+.text-red { color: #ff4b4b; }
+.text-blue { color: #58a6ff; }
+.text-green { color: #238636; }
+.text-yellow { color: #d4a373; }
+
+/* --- CONTENEDORES DE COMANDOS TERMINAL --- */
+.command-box {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.command-box code {
+    color: #ff7b72;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.btn-copy {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: background 0.2s ease;
+}
+
+.btn-copy:hover {
+    background-color: #30363d;
+}
+
+.command-sub {
+    font-size: 13px !important;
+    color: #8b949e !important;
+    margin-bottom: 0;
+}
+
+.inline-code {
+    background-color: #21262d;
+    color: #ff7b72;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.badge-info {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #58a6ff;
+}
+
+/* --- CAJA DE TIPS --- */
+.repo-tip-box {
+    background-color: #0d1117;
+    border-left: 4px solid #d4a373;
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+}
+
+.repo-tip-box h5 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.repo-tip-box p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #8b949e;
+}

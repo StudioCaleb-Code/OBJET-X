@@ -1,0 +1,51 @@
+OBJET-X/
+│
+├── dataset/                  # Carpeta con tus imágenes etiquetadas (Roboflow)
+│   ├── train/
+│   │   ├── images/           # Fotos para entrenar
+│   │   └── labels/           # Archivos .txt con las etiquetas
+│   └── val/
+│       ├── images/           # Fotos para validar
+│       └── labels/           # Archivos .txt con las etiquetas
+│
+├── templates/               
+|   ├── components/
+|   |   ├── header.html  # componente header reutilizable para las demas paginas
+|   |   ├── footer.html  # componente footer reutilizable para las demas paginas
+|   |   
+|   ├── pages/
+|   |   ├── repositorio.html
+|   |   ├── documentacion.html
+|   |   ├── nosotros.html
+|   |   
+│   └── index.html            # Tu diseño web propio en HTML5 y CSS3
+│
+├── static/               
+|   ├── css/               
+|   |   ├── index.css               
+|   |   ├── header.css               
+|   |   ├── footer.css               
+|   |   ├── nosotros.css               
+|   |   ├── documentacion.css               
+|   |   ├── repositorio.css               
+|   |   |__ global.css               
+|   ├── js/     
+|   |   ├── index.js               
+|   |   ├── header.js               
+|   |   ├── footer.js               
+|   |   ├── nosotros.js               
+|   |   ├── documentacion.js               
+|   |   ├── repositorio.js               
+|   |   |__ global.js            
+|   ├── image/               
+|           
+├── best.pt                   # Mi modelo entrenado (YOLOv8)
+├── data.yaml                 # Archivo de configuración del dataset
+├── productos.csv             # Tu base de datos de precios (Editable desde Excel)
+├── app.py                    # Tu nuevo servidor web Flask (Reemplaza a app_web.py)
+├── .env # conexion remota a Railway base de datos
+├── detector_en_vivo.py
+├── detector_imagen.py
+├── entrenar.py
+├── productos_db.py
+└── requirements.txt          # Lista de librerías para cuando lo subas a internet

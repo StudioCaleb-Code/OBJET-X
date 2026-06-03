@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% block title %}OBJET-X CORE{% endblock %} {% block
+custom_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block content %}
+<section class="hero" id="hero-section">
+  <div class="hero-dots-base"></div>
+  <div class="hero-dots-hover" id="dots-hover-layer"></div>
+  <div class="hero-main-card reveal">
+    <div class="logo-box-card">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="bi bi-box"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
+        />
+      </svg>
+    </div>
+    <h1>OBJET-X</h1>
+  </div>
+  <div class="typewriter-container reveal">
+    <p class="hero-text" id="typewriter-text"></p>
+    <span class="typewriter-cursor">|</span>
+  </div>
+  <div class="hero-buttons reveal">
+    <button class="btn btn-black">Descargar para Windows</button>
+    <button class="btn btn-white" id="btn-probar">Probar ahora</button>
+  </div>
+</section>
+
+<section class="demostracion reveal">
+  <div class="section-container">
+    <h2>Demostración</h2>
+    <p>Prueba Objet-X de manera local con nuestra versión 1.1</p>
+    <div class="demo-video-wrapper">
+      <video autoplay loop muted playsinline class="demo-video-player">
+        <source
+          src="{{ url_for('static', filename='image/video.mp4') }}"
+          type="video/mp4"
+        />
+        Tu navegador no soporta la reproducción de videos.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="developers reveal">
+  <h2>Galería de Imágenes</h2>
+  <p class="developers-subtitle">Proyectos y tecnologías que usamos</p>
+  <div class="carousel-wrapper">
+    <div class="carousel-container" id="carousel-container"></div>
+    <div class="carousel-indicators" id="carousel-indicators"></div>
+  </div>
+</section>
+
+<div class="camera-modal" id="camera-modal">
+  <div class="modal-window">
+    <div class="modal-top-bar">
+      <div class="modal-traffic-lights">
+        <span class="modal-light red" id="modal-close-red"></span>
+        <span class="modal-light yellow"></span>
+        <span class="modal-light green"></span>
+      </div>
+      <span class="modal-title">OBJET-X Live Feed</span>
+      <div class="modal-close-x" id="modal-close-x">✕</div>
+    </div>
+    <div class="modal-body-content">
+      <img
+        src="{{ url_for('video_feed') }}"
+        alt="Cámara en tiempo real"
+        class="camera-stream"
+        id="webcam-feed"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %} {% block custom_js %}
+<script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+{% endblock %}
